@@ -1,8 +1,13 @@
 require('dotenv').config()
 const puppeteer = require('puppeteer')
 
-const appId = process.env.APP_ID
-const country = process.env.COUNTRY
+const appIdArg = process.argv.filter((arg => arg.length === 9 && parseInt(arg)))[0]
+const countryArg = process.argv.filter((arg => arg.length === 2))[0]
+const appIdEnv = process.env.APP_ID
+const countryEnv = process.env.COUNTRY
+
+const appId = appIdArg ? appIdArg : appIdEnv
+const country = countryArg ? countryArg : countryEnv
 
 if (appId == null || appId === '' || country == null || country === '') {
     console.error(`You need to specify APPID and COUNTRY.`)
