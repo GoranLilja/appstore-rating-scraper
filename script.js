@@ -15,7 +15,7 @@ if (appId == null || appId === '' || country == null || country === '') {
 }
 
 const url = `https://apps.apple.com/${country}/app/id${appId}?l=en`
-const elementSelector = '.star-rating__count'
+const elementSelector = '.we-customer-ratings__averages__display'
 
 async function scrapeElement(url, elementSelector) {
     let browser
@@ -38,9 +38,7 @@ async function scrapeElement(url, elementSelector) {
 
 async function getRating() {
     try {
-        const text = await scrapeElement(url, elementSelector)
-        const rating = text.split(',')[0]
-
+        const rating = await scrapeElement(url, elementSelector)
         console.log(rating)
     }
     catch(err) {
