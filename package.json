@@ -1,10 +1,13 @@
 {
-  "name": "itunes-scrape",
+  "name": "appstore-scraper",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node script.js"
+    "start": "node index.js"
+  },
+  "bin":{
+    "appstore-scraper": "index.js"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
