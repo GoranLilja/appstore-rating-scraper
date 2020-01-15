@@ -1,0 +1,13 @@
+{
+  "name": "itunes-scrape",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "puppeteer": "^2.0.0"
+  }
+}
