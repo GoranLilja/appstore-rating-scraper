@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 require('dotenv').config()
 const puppeteer = require('puppeteer')
 
@@ -28,22 +30,11 @@ async function scrapeElement(url, elementSelector) {
         const textContent = await el.getProperty('textContent')
         return textContent.jsonValue()
     }
-    catch(err) {
-        console.error(err)
-    }
     finally {
         browser.close()
     }
 }
 
-async function getRating() {
-    try {
-        const rating = await scrapeElement(url, elementSelector)
-        console.log(rating)
-    }
-    catch(err) {
-        console.error(err)
-    }
-}
-
-getRating()
+scrapeElement(url, elementSelector)
+    .then(console.log)
+    .catch(console.error)
